@@ -108,9 +108,19 @@
     /* Projects Section */
     section.projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* UPDATED: force 2 columns */
       gap: 2rem;
+      max-width: 1100px; /* UPDATED */
+      margin: 0 auto;    /* UPDATED */
     }
+
+    /* UPDATED: mobile -> 1 column */
+    @media (max-width: 768px) {
+      section.projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .project-card {
       background: white;
       border-radius: 8px;
@@ -268,7 +278,7 @@
 <!-- Projects Section -->
 <section class="projects" aria-label="Projects">
   <a href="https://github.com/arjitsama/stock-predictor" target="_blank" rel="noopener noreferrer" class="project-card">
-    <img src="stockapp.png" alt="Stock Predictor App" />
+    <img src="stockapp.png" alt="Stock Forecaster App" />
     <h3>Stock Predictor App</h3>
     <p>Developed a predictive model using Python and Streamlit to forecast stock prices for multiple companies.</p>
     <p><strong>Technologies:</strong> Python, Streamlit, Pandas, Facebook Prophet</p>
@@ -279,6 +289,14 @@
     <h3>Data Fest Presentation</h3>
     <p>Analyzed nationwide supermarket accessibility trends using Python, pandas, NumPy, GeoPandas, and scikit-learn with a five-person team.</p>
     <p><strong>Technologies:</strong> Python, Scikit-Learn, Geopandas, Numpy</p>
+  </a>
+
+  
+  <a href="https://github.com/arjitsama/nfl-playoff-predictor" target="_blank" rel="noopener noreferrer" class="project-card">
+    <img src="nfl.png" alt="NFL Super Bowl Predictor" />
+    <h3>NFL Playoff Predictor</h3>
+    <p>Built an NFL win probability and championship odds model using ensemble machine learning and Monte Carlo simulations.</p>
+    <p><strong>Technologies:</strong> Python, Streamlit, Pandas, Facebook Prophet</p>
   </a>
 
 
