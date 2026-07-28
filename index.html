@@ -12,7 +12,7 @@
   <meta property="og:description" content="Data Science @ Virginia Tech '27. Data Engineering Intern @ IBM. ML, NLP, forecasting & data engineering projects." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="portfolio.png" />
-  <meta name="theme-color" content="#FFF6FA" />
+  <meta name="theme-color" content="#FAFAFE" />
 
   <!-- Emoji favicon (no external request) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
@@ -24,18 +24,19 @@
 
   <style>
     :root{
-      --bg: #FFF6FA;
-      --bg-tint: #FFE9F1;
+      --bg: #FAFAFE;
+      --bg-tint: #EEF1F8;
       --surface: #FFFFFF;
       --ink: #14161F;
       --body: #4B5163;
       --muted: #8A90A2;
       --line: rgba(20,22,31,0.09);
       --line-strong: rgba(20,22,31,0.16);
-      --accent: #EC4899;     /* pink */
-      --accent-2: #F472B6;   /* light pink */
-      --accent-3: #FB7185;   /* rose */
-      --accent-ink: #BE185D; /* deep pink for small readable text */
+      --accent: #EC4899;      /* pink (signature) */
+      --accent-2: #6AA5F4;    /* soft pastel blue */
+      --accent-3: #93C5FD;    /* light pastel blue */
+      --accent-ink: #BE185D;  /* deep pink for small readable text */
+      --accent-ink-2: #2563C9;/* readable blue for small text if needed */
       --good: #12B76A;
       --shadow-sm: 0 4px 14px rgba(20,22,31,0.06);
       --shadow: 0 16px 40px rgba(20,22,31,0.10);
@@ -66,8 +67,8 @@
     .mesh { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .mesh span { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.55; will-change: transform; }
     .mesh .m1 { width: 44vw; height: 44vw; left: -10vw; top: -8vw; background: radial-gradient(circle, rgba(236,72,153,0.42), transparent 66%); animation: float1 24s ease-in-out infinite; }
-    .mesh .m2 { width: 38vw; height: 38vw; right: -8vw; top: 6vw;  background: radial-gradient(circle, rgba(244,114,182,0.40), transparent 66%); animation: float2 28s ease-in-out infinite; }
-    .mesh .m3 { width: 40vw; height: 40vw; left: 34vw; bottom: -16vw; background: radial-gradient(circle, rgba(251,113,133,0.28), transparent 66%); animation: float3 32s ease-in-out infinite; }
+    .mesh .m2 { width: 38vw; height: 38vw; right: -8vw; top: 6vw;  background: radial-gradient(circle, rgba(106,165,244,0.40), transparent 66%); animation: float2 28s ease-in-out infinite; }
+    .mesh .m3 { width: 40vw; height: 40vw; left: 34vw; bottom: -16vw; background: radial-gradient(circle, rgba(147,197,253,0.28), transparent 66%); animation: float3 32s ease-in-out infinite; }
     @keyframes float1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(5vw,4vw) scale(1.12)} }
     @keyframes float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-5vw,5vw) scale(1.08)} }
     @keyframes float3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-4vw,-6vw) scale(1.16)} }
@@ -93,7 +94,7 @@
     .nav {
       position: sticky; top: 0; z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(255,246,250,0.72);
+      background: rgba(250,250,254,0.72);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
@@ -177,7 +178,7 @@
     .portrait-stage { position: relative; display: grid; place-items: center; }
     .portrait-blob {
       position: absolute; width: 96%; aspect-ratio: 1; border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%;
-      background: linear-gradient(135deg, rgba(236,72,153,0.28), rgba(244,114,182,0.28));
+      background: linear-gradient(135deg, rgba(236,72,153,0.28), rgba(106,165,244,0.28));
       filter: blur(6px); animation: morph 12s ease-in-out infinite;
     }
     @keyframes morph {
@@ -298,7 +299,7 @@
     .thumb img { width: 100%; height: 180px; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .card:hover .thumb img { transform: scale(1.07); }
     .thumb.ph { height: 180px; display: grid; place-items: center;
-      background: radial-gradient(circle at 28% 24%, rgba(236,72,153,0.35), transparent 60%), radial-gradient(circle at 78% 72%, rgba(244,114,182,0.30), transparent 60%), linear-gradient(135deg, #FFE4EF, #FFF0F6); }
+      background: radial-gradient(circle at 28% 24%, rgba(236,72,153,0.35), transparent 60%), radial-gradient(circle at 78% 72%, rgba(106,165,244,0.30), transparent 60%), linear-gradient(135deg, #FFE4EF, #E9F0FF); }
     .thumb.ph .emoji { font-size: 3.4rem; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .card:hover .thumb.ph .emoji { transform: scale(1.14) rotate(-5deg); }
     .thumb .open { position: absolute; top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 999px;
@@ -311,7 +312,7 @@
 
     /* ====== Contact ====== */
     .contact { text-align: center; padding: clamp(1.6rem,4vw,2.4rem) 1.5rem; border-radius: calc(var(--radius) + 6px);
-      background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(244,114,182,0.10)); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+      background: linear-gradient(135deg, rgba(236,72,153,0.10), rgba(106,165,244,0.10)); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
     .contact h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); }
     .contact p { color: var(--body); margin: 0.6rem auto 1.4rem; max-width: 52ch; }
     .contact-links { display: flex; justify-content: center; gap: 0.7rem; flex-wrap: wrap; }
