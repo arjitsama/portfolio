@@ -231,7 +231,7 @@
     .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
     @media (max-width: 560px){ .stats { grid-template-columns: 1fr; } }
     .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 1.3rem 1.2rem; box-shadow: var(--shadow-sm); text-align: center; }
-    .stat .num { font-family: var(--display); font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em;
+    .stat .num { font-family: var(--display); font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
       background: linear-gradient(120deg, var(--ink), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .stat .label { color: var(--muted); font-weight: 600; font-size: 0.88rem; margin-top: 0.2rem; }
 
@@ -303,6 +303,8 @@
       background: radial-gradient(circle at 24% 22%, rgba(229,195,209,0.60), transparent 55%), radial-gradient(circle at 80% 78%, rgba(100,166,189,0.40), transparent 55%), #F4F6FB; }
     .thumb.ph .emoji { font-size: 3.4rem; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .card:hover .thumb.ph .emoji { transform: scale(1.14) rotate(-5deg); }
+    .thumb.ph .ph-logo { width: 44%; max-width: 150px; height: auto; filter: drop-shadow(0 10px 22px rgba(23,55,83,0.22)); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+    .card:hover .thumb.ph .ph-logo { transform: scale(1.1) rotate(-4deg); }
     .thumb .open { position: absolute; top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 999px;
       background: rgba(255,255,255,0.92); border: 1px solid var(--line); font-size: 0.72rem; font-weight: 800; color: var(--accent-ink);
       opacity: 0; transform: translateY(-4px); transition: opacity .25s, transform .25s; }
@@ -413,9 +415,9 @@
 
     <!-- Stats -->
     <section class="section stats">
-      <div class="stat" data-reveal><div class="num" data-count="6">0</div><div class="label">Featured projects</div></div>
-      <div class="stat" data-reveal><div class="num" data-count="2">0</div><div class="label">Internships</div></div>
-      <div class="stat" data-reveal><div class="num" data-count="2027" data-raw="true">2027</div><div class="label">VT graduation</div></div>
+      <div class="stat" data-reveal><div class="num">Data Science</div><div class="label">B.S. Major @ Virginia Tech</div></div>
+      <div class="stat" data-reveal><div class="num">CS &amp; Math</div><div class="label">Minors</div></div>
+      <div class="stat" data-reveal><div class="num" data-count="2027" data-raw="true">2027</div><div class="label">Expected graduation</div></div>
     </section>
 
     <!-- Experience -->
@@ -524,7 +526,7 @@
 
       <div class="projects">
         <a class="card" data-reveal href="https://github.com/arjitsama/snowflake-agent-research" target="_blank" rel="noopener noreferrer">
-          <div class="thumb ph"><span class="emoji" aria-hidden="true">❄️</span><span class="open">Open ↗</span></div>
+          <div class="thumb ph"><img class="ph-logo" src="icons/snowflake.svg" alt="Snowflake logo" loading="lazy"><span class="open">Open ↗</span></div>
           <h3>Snowflake Cortex Agent Research</h3>
           <p>Empirical study (IBM × Morgan Stanley) of Cortex Agent performance at enterprise scale — table scaling limits, view routing, and hallucination rates across 75+ evaluations.</p>
           <p class="tech">Snowflake · Cortex Agents · SQL · YAML</p>
@@ -538,7 +540,7 @@
         </a>
 
         <a class="card" data-reveal href="https://github.com/arjitsama/medical-nlp-pipeline" target="_blank" rel="noopener noreferrer">
-          <div class="thumb ph"><span class="emoji" aria-hidden="true">🩺</span><span class="open">Open ↗</span></div>
+          <div class="thumb"><img src="medical.png" alt="Medical NLP pipeline: 5-phase flow from EDA to retrieval validation" loading="lazy" style="object-fit:contain;background:#0f1622;"><span class="open">Open ↗</span></div>
           <h3>Medical Transcription NLP Pipeline</h3>
           <p>Multi-class classifier over 4,999 clinical notes across 40 specialties, using TF-IDF + chi-square selection to cut the feature space from 6,000 to 800 terms.</p>
           <p class="tech">Python · scikit-learn · NLTK · FAISS</p>
