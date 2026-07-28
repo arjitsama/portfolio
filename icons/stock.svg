@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 12 78 72" role="img" aria-label="Candlestick chart with rising forecast">
+  <g stroke="#173753" stroke-width="3.6" stroke-linecap="round">
+    <line x1="22" y1="50" x2="22" y2="80"/>
+    <line x1="42" y1="36" x2="42" y2="70"/>
+    <line x1="62" y1="24" x2="62" y2="58"/>
+  </g>
+  <rect x="15.5" y="58" width="13" height="15" rx="3.5" fill="#E5C3D1" stroke="#173753" stroke-width="3.4"/>
+  <rect x="35.5" y="43" width="13" height="18" rx="3.5" fill="#90DDF0" stroke="#173753" stroke-width="3.4"/>
+  <rect x="55.5" y="31" width="13" height="18" rx="3.5" fill="#64A6BD" stroke="#173753" stroke-width="3.4"/>
+  <path d="M72 30 L85 17" fill="none" stroke="#2E6E86" stroke-width="3.6" stroke-linecap="round" stroke-dasharray="5.5 5.5"/>
+  <path d="M87.5 14 L86 27 L74.5 20 Z" fill="#2E6E86"/>
+</svg>

@@ -140,8 +140,8 @@
     .eyebrow {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-weight: 700; font-size: 0.82rem; letter-spacing: 0.02em;
-      color: var(--ink); background: rgba(229,195,209,0.55);
-      border: 1px solid rgba(229,195,209,0.9);
+      color: #4A5E72; background: rgba(240,220,229,0.42);
+      border: 1px solid rgba(229,195,209,0.45);
       padding: 0.4rem 0.8rem; border-radius: 999px; margin-bottom: 1.1rem;
     }
     .hero h1 {
@@ -184,13 +184,18 @@
     /* Hero portrait */
     .portrait-stage { position: relative; display: grid; place-items: center; }
     .portrait-blob {
-      position: absolute; width: 96%; aspect-ratio: 1; border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%;
-      background: linear-gradient(135deg, rgba(100,166,189,0.34), rgba(144,221,240,0.30));
-      filter: blur(6px); animation: morph 12s ease-in-out infinite;
+      position: absolute; width: 100%; aspect-ratio: 1;
+      border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+      background: linear-gradient(135deg, rgba(100,166,189,0.38), rgba(144,221,240,0.32));
+      filter: blur(7px); animation: bubble 18s ease-in-out infinite;
     }
-    @keyframes morph {
-      0%,100% { border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%; transform: rotate(0deg); }
-      50%     { border-radius: 60% 40% 40% 60% / 55% 60% 40% 45%; transform: rotate(6deg); }
+    /* a slow bubble: each side eases at its own pace, the whole thing breathes gently */
+    @keyframes bubble {
+      0%   { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; transform: translate(0,0) rotate(0deg) scale(1); }
+      25%  { border-radius: 64% 36% 41% 59% / 56% 37% 63% 44%; transform: translate(0.8%,-1%) rotate(3deg) scale(1.022); }
+      50%  { border-radius: 33% 67% 57% 43% / 63% 59% 41% 37%; transform: translate(-0.7%,0.7%) rotate(5.5deg) scale(1.006); }
+      75%  { border-radius: 59% 41% 35% 65% / 43% 63% 37% 57%; transform: translate(0.9%,0.5%) rotate(2.5deg) scale(1.026); }
+      100% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; transform: translate(0,0) rotate(0deg) scale(1); }
     }
     .portrait-card {
       position: relative; z-index: 1;
@@ -315,7 +320,7 @@
       background: radial-gradient(circle at 24% 22%, rgba(229,195,209,0.60), transparent 55%), radial-gradient(circle at 80% 78%, rgba(100,166,189,0.40), transparent 55%), #F4F6FB; }
     .thumb.ph .emoji { font-size: 3.4rem; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .card:hover .thumb.ph .emoji { transform: scale(1.14) rotate(-5deg); }
-    .thumb.ph .ph-logo { width: 44%; max-width: 150px; height: auto; filter: drop-shadow(0 10px 22px rgba(23,55,83,0.22)); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+    .thumb.ph .ph-logo { width: auto; height: auto; max-width: 118px; max-height: 90px; object-fit: contain; filter: drop-shadow(0 10px 22px rgba(23,55,83,0.22)); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
     .card:hover .thumb.ph .ph-logo { transform: scale(1.1) rotate(-4deg); }
     .thumb .open { position: absolute; top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 999px;
       background: rgba(255,255,255,0.92); border: 1px solid var(--line); font-size: 0.72rem; font-weight: 800; color: var(--accent-ink);
@@ -357,6 +362,59 @@
     .to-top .tt-ring circle { fill: none; stroke: var(--ink); stroke-width: 2.6; stroke-linecap: round; opacity: 0.85;
       stroke-dasharray: 125.6; stroke-dashoffset: 125.6; transition: stroke-dashoffset .12s linear; }
 
+    /* ====== Micro-interactions ====== */
+    /* skill rows: the icon pops and the bar brightens when you hover the row */
+    .skill-top img { transition: transform .28s cubic-bezier(.2,.8,.2,1), filter .28s ease; }
+    .skill:hover .skill-top img { transform: scale(1.28) translateY(-1px); filter: drop-shadow(0 5px 10px rgba(23,55,83,0.22)); }
+    .skill-top b { transition: color .25s ease; }
+    .skill:hover .skill-top b { color: var(--accent-ink); }
+    .skill:hover .bar > i { filter: saturate(1.25) brightness(1.06); box-shadow: 0 0 10px rgba(100,166,189,0.55); }
+    .skill-top .yrs { transition: color .25s ease; }
+    .skill:hover .skill-top .yrs { color: var(--accent-ink); }
+
+    /* stack tags lift a little further */
+    .tag:hover { transform: translateY(-2px) scale(1.04); }
+
+    /* experience chips */
+    .chip { transition: transform .18s cubic-bezier(.2,.8,.2,1), color .2s, border-color .2s, background .2s; }
+    .chip:hover { transform: translateY(-2px); color: var(--accent-ink); border-color: rgba(100,166,189,0.5); background: rgba(100,166,189,0.10); }
+
+    /* stat cards */
+    .stat { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .25s ease; }
+    .stat:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--line-strong); }
+    .stat .num { display: inline-block; transition: transform .25s cubic-bezier(.2,.8,.2,1); }
+    .stat:hover .num { transform: scale(1.06); }
+
+    /* marquee items respond to the cursor */
+    .marquee-track span { transition: color .2s ease; }
+    .marquee-track span:hover { color: var(--accent-ink); }
+
+    /* timeline node */
+    .exp-node { transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
+    .exp:hover .exp-node { transform: scale(1.22); box-shadow: 0 0 0 8px rgba(100,166,189,0.16); }
+    /* the rail draws itself downward as each record arrives */
+    .exp-line { transform: scaleY(0); transform-origin: top; transition: transform 1.1s cubic-bezier(.2,.7,.2,1) .15s; }
+    .exp.revealed .exp-line { transform: scaleY(1); }
+
+    /* project thumbnails rest under a cool veil, then wake up on hover */
+    .thumb img { transition: transform .55s cubic-bezier(.2,.7,.2,1), filter .45s ease; filter: saturate(0.86) contrast(1.02); }
+    .card:hover .thumb img { filter: saturate(1.06) contrast(1.04); }
+    .thumb:not(.ph)::before {
+      content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background: linear-gradient(180deg, rgba(23,55,83,0.10), rgba(23,55,83,0.01) 48%, rgba(100,166,189,0.15));
+      transition: opacity .5s ease;
+    }
+    .card:hover .thumb:not(.ph)::before { opacity: 0; }
+
+    /* nav avatar + hero portrait */
+    .brand-avatar { transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
+    .brand:hover .brand-avatar { transform: scale(1.08); box-shadow: 0 6px 18px rgba(100,166,189,0.55), 0 0 0 3px rgba(100,166,189,0.35); }
+    .portrait-card { transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease; }
+    .portrait-stage:hover .portrait-card { transform: translateY(-6px) scale(1.015); }
+
+    /* copy-email confirmation */
+    .btn.copied { color: var(--good); border-color: rgba(87,136,108,0.45); background: rgba(87,136,108,0.10); }
+
     /* ====== Word-by-word heading reveal ====== */
     .sec-head h2 .word { display: inline-block; opacity: 0; transform: translateY(22px) rotate(2deg);
       transition: opacity .55s cubic-bezier(.2,.7,.2,1), transform .55s cubic-bezier(.2,.7,.2,1); }
@@ -381,6 +439,7 @@
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; }
       [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .exp-line { transform: none !important; }
       .glow { display: none !important; }
       .marquee-track { animation: none !important; }
       .sec-head h2 .word { opacity: 1 !important; transform: none !important; }
@@ -581,38 +640,38 @@
         </a>
 
         <a class="card" data-reveal href="https://github.com/arjitsama/HackViolet2026" target="_blank" rel="noopener noreferrer">
-          <div class="thumb"><img src="lumina.png" alt="Lumina — VT Campus Safety App" loading="lazy" /><span class="open">Open ↗</span></div>
+          <div class="thumb ph"><img class="ph-logo" src="icons/googlemaps.svg" alt="Google Maps" loading="lazy"><span class="open">Open ↗</span></div>
           <h3>Lumina (HackViolet 2026)</h3>
           <p>A VT campus safety app with real-time GPS tracking, safe-route planning, and turn-by-turn navigation across 13 verified locations, plus SOS and Blue Light alerts.</p>
           <p class="tech">React Native · Expo · Geoapify · Google Maps</p>
         </a>
 
+        <a class="card" data-reveal href="https://docs.google.com/presentation/d/1H7NaHfwmkVm5nc2-baM04mDrd87tuhOjpV_H2Emy2c8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <div class="thumb ph"><img class="ph-logo" src="icons/usda.svg" alt="USDA logo" loading="lazy"><span class="open">Open ↗</span></div>
+          <h3>Supermarket Accessibility (Data Fest '25)</h3>
+          <p>Analyzed U.S. supermarket accessibility across 3,000+ USDA datasets, building a PCA index and spatial regression to surface underserved regions.</p>
+          <p class="tech">Python · GeoPandas · scikit-learn · PCA</p>
+        </a>
+
         <a class="card" data-reveal href="https://github.com/arjitsama/medical-nlp-pipeline" target="_blank" rel="noopener noreferrer">
-          <div class="thumb"><img src="medical.png" alt="Medical NLP pipeline: 5-phase flow from EDA to retrieval validation" loading="lazy" style="object-fit:contain;background:#0f1622;"><span class="open">Open ↗</span></div>
+          <div class="thumb ph"><img class="ph-logo" src="icons/medical.svg" alt="Clinical NLP" loading="lazy"><span class="open">Open ↗</span></div>
           <h3>Medical Transcription NLP Pipeline</h3>
           <p>Multi-class classifier over 4,999 clinical notes across 40 specialties, using TF-IDF + chi-square selection to cut the feature space from 6,000 to 800 terms.</p>
           <p class="tech">Python · scikit-learn · NLTK · FAISS</p>
         </a>
 
         <a class="card" data-reveal href="https://github.com/arjitsama/stock-predictor" target="_blank" rel="noopener noreferrer">
-          <div class="thumb"><img src="stockapp.png" alt="Stock Forecaster App" loading="lazy" /><span class="open">Open ↗</span></div>
+          <div class="thumb ph"><img class="ph-logo" src="icons/stock.svg" alt="Stock forecasting" loading="lazy"><span class="open">Open ↗</span></div>
           <h3>Stock Predictor App</h3>
           <p>A Streamlit app that pulls historical prices via yfinance, forecasts with Prophet, and renders interactive Plotly charts for multiple companies.</p>
           <p class="tech">Python · Streamlit · Prophet · Plotly</p>
         </a>
 
         <a class="card" data-reveal href="https://github.com/arjitsama/nfl-playoff-predictor" target="_blank" rel="noopener noreferrer">
-          <div class="thumb"><img src="nfl.png" alt="NFL Super Bowl Predictor" loading="lazy" /><span class="open">Open ↗</span></div>
+          <div class="thumb ph"><img class="ph-logo" src="icons/nfl.svg" alt="NFL logo" loading="lazy"><span class="open">Open ↗</span></div>
           <h3>NFL Playoff Predictor</h3>
           <p>Win-probability and championship-odds model using ensemble ML and Monte Carlo simulations to project playoff and Super Bowl outcomes.</p>
           <p class="tech">Python · scikit-learn · Monte Carlo</p>
-        </a>
-
-        <a class="card" data-reveal href="https://docs.google.com/presentation/d/1H7NaHfwmkVm5nc2-baM04mDrd87tuhOjpV_H2Emy2c8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <div class="thumb"><img src="supermarket.png" alt="Supermarket Accessibility Analysis" loading="lazy" /><span class="open">Open ↗</span></div>
-          <h3>Supermarket Accessibility (Data Fest '25)</h3>
-          <p>Analyzed U.S. supermarket accessibility across 3,000+ USDA datasets, building a PCA index and spatial regression to surface underserved regions.</p>
-          <p class="tech">Python · GeoPandas · scikit-learn · PCA</p>
         </a>
       </div>
     </section>
@@ -625,6 +684,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
             arjitsama06@gmail.com
           </a>
+          <button class="btn magnetic" id="copyBtn" data-copy="arjitsama06@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+            <span id="copyLabel">Copy email</span>
+          </button>
           <a class="btn magnetic" href="https://github.com/arjitsama" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="btn magnetic" href="https://www.linkedin.com/in/arjit-sama/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
@@ -816,6 +879,21 @@
           btn.style.transform = `translate(${(e.clientX - r.left - r.width/2) * 0.18}px, ${(e.clientY - r.top - r.height/2) * 0.28}px)`;
         });
         btn.addEventListener("pointerleave", () => btn.style.transform = "");
+      });
+    }
+    /* ---- Copy email ---- */
+    const copyBtn = document.getElementById("copyBtn");
+    if (copyBtn) {
+      const label = document.getElementById("copyLabel");
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(copyBtn.dataset.copy);
+          label.textContent = "Copied";
+          copyBtn.classList.add("copied");
+          setTimeout(() => { label.textContent = "Copy email"; copyBtn.classList.remove("copied"); }, 1800);
+        } catch {
+          label.textContent = copyBtn.dataset.copy;
+        }
       });
     }
   </script>
