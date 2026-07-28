@@ -6,10 +6,10 @@
   <title>Arjit Sama — Data Science & Data Engineering</title>
 
   <!-- SEO / social preview -->
-  <meta name="description" content="Arjit Sama — Data Science @ Virginia Tech '27, Data Engineer Intern. Projects in ML, forecasting, and data engineering." />
+  <meta name="description" content="Arjit Sama — Data Science @ Virginia Tech '27. Data Engineering Intern @ IBM. Projects in ML, NLP, forecasting, and data engineering." />
   <meta name="author" content="Arjit Sama" />
   <meta property="og:title" content="Arjit Sama — Data Science & Data Engineering" />
-  <meta property="og:description" content="Data Science @ Virginia Tech '27. Projects in ML, forecasting, and data engineering." />
+  <meta property="og:description" content="Data Science @ Virginia Tech '27. Data Engineering Intern @ IBM. ML, NLP, forecasting & data engineering projects." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="portfolio.png" />
   <meta name="theme-color" content="#070A12" />
@@ -183,13 +183,13 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.35rem;
       flex-wrap: wrap;
     }
     .nav-links a {
       font-size: 0.92rem;
       color: var(--muted);
-      padding: 0.55rem 0.75rem;
+      padding: 0.55rem 0.7rem;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
@@ -205,6 +205,8 @@
       background: rgba(124,92,255,0.16);
       border-color: rgba(124,92,255,0.35);
     }
+    .nav-links a.hide-sm { }
+    @media (max-width: 560px){ .nav-links a.hide-sm { display: none; } }
     .cta {
       display: inline-flex;
       align-items: center;
@@ -265,6 +267,7 @@
     }
     .hero p { color: var(--muted); font-size: 1.02rem; max-width: 56ch; }
     .hero .sub { margin-top: 0.65rem; color: rgba(255,255,255,0.76); font-weight: 600; }
+    .hero .sub strong { color: #fff; font-weight: 800; }
 
     /* Rotating tagline */
     .rotate-line {
@@ -319,12 +322,13 @@
       box-shadow: 0 14px 40px rgba(124,92,255,0.20);
     }
 
+    /* ====== Profile card (hero right) ====== */
     .hero-card {
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(0,0,0,0.18);
       box-shadow: var(--shadow2);
-      padding: 1.1rem;
+      padding: 1.3rem 1.1rem 1.1rem;
       position: relative;
       overflow: hidden;
     }
@@ -338,7 +342,22 @@
       opacity: 0.9;
       pointer-events:none;
     }
-    .hero-card-inner{ position: relative; z-index: 1; display: grid; gap: 0.65rem; }
+    .hero-card-inner{ position: relative; z-index: 1; display: grid; gap: 0.7rem; justify-items: center; }
+    .avatar-wrap {
+      width: 132px; height: 132px;
+      border-radius: 50%;
+      padding: 4px;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent));
+      box-shadow: 0 14px 40px rgba(124,92,255,0.35);
+    }
+    .avatar-wrap img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 3px solid rgba(7,10,18,0.9);
+      background: #0B1020;
+    }
     .pill {
       display: inline-flex;
       align-items: center;
@@ -364,19 +383,19 @@
       70%  { box-shadow: 0 0 0 8px rgba(52,211,153,0); }
       100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
     }
-    .quick { display: grid; gap: 0.5rem; margin-top: 0.25rem; }
+    .quick { display: grid; gap: 0.5rem; margin-top: 0.25rem; width: 100%; }
     .quick-item{
       display:flex;
       justify-content: space-between;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.65rem 0.75rem;
+      padding: 0.6rem 0.75rem;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
     }
-    .quick-item span{ color: rgba(255,255,255,0.82); font-weight: 700; font-size: 0.95rem; }
-    .quick-item small{ color: var(--muted2); font-weight: 600; text-align: right; }
+    .quick-item span{ color: rgba(255,255,255,0.82); font-weight: 700; font-size: 0.92rem; }
+    .quick-item small{ color: var(--muted2); font-weight: 600; text-align: right; font-size: 0.85rem; }
 
     /* ====== Stat strip ====== */
     .stats {
@@ -409,11 +428,56 @@
     .section-head h2{ font-size: 1.25rem; letter-spacing: -0.02em; color: rgba(255,255,255,0.92); }
     .section-head p{ color: var(--muted2); font-size: 0.95rem; }
 
+    /* ====== Experience timeline ====== */
+    .timeline { display: grid; gap: 1.1rem; }
+    .exp-item {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      box-shadow: var(--shadow2);
+      padding: 1.15rem 1.25rem;
+      overflow: hidden;
+    }
+    .exp-item::before{
+      content:"";
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    .exp-top {
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exp-role { font-weight: 900; font-size: 1.05rem; color: #fff; letter-spacing: -0.01em; }
+    .exp-org { color: rgba(255,255,255,0.82); font-weight: 700; }
+    .exp-org .cur {
+      margin-left: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--good);
+      border: 1px solid rgba(52,211,153,0.4);
+      background: rgba(52,211,153,0.12);
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+    .exp-meta { text-align: right; color: var(--muted2); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+    .exp-list { margin: 0.75rem 0 0.25rem; padding-left: 1.1rem; display: grid; gap: 0.4rem; }
+    .exp-list li { color: var(--muted); font-size: 0.95rem; }
+    .exp-list li::marker { color: var(--accent2); }
+    .exp-stack { margin-top: 0.7rem; }
+
     /* ====== Skills ====== */
     .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
     @media (max-width: 860px){
       .hero { grid-template-columns: 1fr; }
       .skills { grid-template-columns: 1fr; }
+      .exp-meta { text-align: left; }
     }
     .skills-column {
       border-radius: var(--radius);
@@ -484,6 +548,42 @@
       transition: width 1.1s cubic-bezier(.2,.9,.2,1);
     }
 
+    /* ====== Tech stack (categorized chips) ====== */
+    .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    @media (max-width: 720px){ .stack { grid-template-columns: 1fr; } }
+    .stack-group {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      padding: 1.1rem 1.15rem;
+      box-shadow: var(--shadow2);
+    }
+    .stack-group h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent2);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag {
+      padding: 0.4rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: transform .15s ease, border-color .2s ease, background .2s ease, color .2s ease;
+    }
+    .tag:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124,92,255,0.5);
+      background: rgba(124,92,255,0.14);
+      color: #fff;
+    }
+
     /* ====== Projects ====== */
     section.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
     @media (max-width: 768px) { section.projects { grid-template-columns: 1fr; } }
@@ -515,7 +615,6 @@
       pointer-events:none;
       transition: opacity .25s ease;
     }
-    /* Glare that follows the pointer on tilt */
     .project-card::after{
       content:"";
       position:absolute;
@@ -549,6 +648,24 @@
       transition: transform .5s cubic-bezier(.2,.7,.2,1);
     }
     .project-card:hover img { transform: scale(1.06); }
+
+    /* Placeholder thumbnail for projects without a screenshot */
+    .project-thumb.ph {
+      height: 170px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(124,92,255,0.45), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(34,211,238,0.35), transparent 60%),
+        linear-gradient(135deg, #12172b, #0b1020);
+    }
+    .project-thumb.ph .emoji {
+      font-size: 3.4rem;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+      transition: transform .5s cubic-bezier(.2,.7,.2,1);
+    }
+    .project-card:hover .project-thumb.ph .emoji { transform: scale(1.12) rotate(-4deg); }
+
     .project-thumb .open-tag {
       position: absolute;
       top: 0.6rem; right: 0.6rem;
@@ -662,7 +779,7 @@
     /* Reduced motion accessibility */
     @media (prefers-reduced-motion: reduce){
       * { scroll-behavior: auto !important; }
-      .reveal, .project-card, .progress, .rotate-word, .project-card img { transition: none !important; }
+      .reveal, .project-card, .progress, .rotate-word, .project-card img, .project-thumb.ph .emoji { transition: none !important; }
       .reveal, .project-card { opacity: 1 !important; transform: none !important; }
       .aurora span, .dot { animation: none !important; }
       .spotlight { display: none !important; }
@@ -685,6 +802,7 @@
         <span>Arjit Sama</span>
       </div>
       <nav class="nav-links" aria-label="Primary">
+        <a href="#experience" class="hide-sm">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact" class="cta">Contact</a>
@@ -698,8 +816,8 @@
       <div class="hero">
         <div>
           <h1>Arjit Sama</h1>
-          <p>Data Science @ Virginia Tech, Class of 2027</p>
-          <p class="sub">Data Engineer Intern @ Springer Capital.</p>
+          <p>Data Science @ Virginia Tech, Class of 2027 · Minor in CS &amp; Math</p>
+          <p class="sub">Data Engineering Intern @ <strong>IBM</strong> · Prev. Data Science Intern @ Springer Capital</p>
 
           <div class="rotate-line" aria-hidden="true">
             <span>Turning data into</span>
@@ -716,11 +834,18 @@
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.38-3.9-2.38 0-2.75 1.86-2.75 3.78V24h-4V8z"/></svg>
               LinkedIn
             </a>
+            <a class="btn" href="mailto:arjitsama06@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
+              Email
+            </a>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="hero-card-inner">
+            <div class="avatar-wrap">
+              <img src="me.jpg" alt="Portrait of Arjit Sama" width="132" height="132" />
+            </div>
             <div class="pill"><span class="dot"></span> Open to internships</div>
             <div class="quick">
               <div class="quick-item">
@@ -728,8 +853,8 @@
                 <small>Data Engineering + Data Science</small>
               </div>
               <div class="quick-item">
-                <span>Main Skills</span>
-                <small>Python • SQL • Power BI • Excel</small>
+                <span>Currently</span>
+                <small>Data Eng. Intern @ IBM</small>
               </div>
               <div class="quick-item">
                 <span>Based in</span>
@@ -743,9 +868,65 @@
 
     <!-- Stat strip -->
     <section class="stats reveal" aria-label="At a glance">
-      <div class="stat"><div class="num" data-count="4" data-suffix="">0</div><div class="label">Featured projects</div></div>
-      <div class="stat"><div class="num" data-count="8" data-suffix="+">0</div><div class="label">Tools &amp; languages</div></div>
+      <div class="stat"><div class="num" data-count="6" data-suffix="">0</div><div class="label">Featured projects</div></div>
+      <div class="stat"><div class="num" data-count="2" data-suffix="">0</div><div class="label">Internships</div></div>
       <div class="stat"><div class="num" data-count="2027" data-raw="true">2027</div><div class="label">VT graduation</div></div>
+    </section>
+
+    <!-- Experience -->
+    <div class="section-head reveal" id="experience">
+      <div>
+        <h2>Experience</h2>
+        <p>Where I've applied data engineering and data science in the real world.</p>
+      </div>
+    </div>
+
+    <section class="timeline" aria-label="Experience">
+      <article class="exp-item reveal">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Data Engineering Intern</div>
+            <div class="exp-org">IBM <span class="cur">Current</span></div>
+          </div>
+          <div class="exp-meta">May 2026 – Aug 2026<br>Baton Rouge, LA</div>
+        </div>
+        <ul class="exp-list">
+          <li>Partnered with Morgan Stanley on IBM's Data Platforms consulting team to benchmark Snowflake Cortex Agents at scale — measuring accuracy, token cost, and routing behavior as schema complexity grew.</li>
+          <li>Designed and executed <strong>75+ automated evaluations</strong> across 4 table tiers, 3 orchestration models, and 2 agent architectures, quantifying a 10–14% accuracy drop past 20+ tables and delivering enterprise scaling recommendations.</li>
+          <li>Built semantic data models spanning 100 test questions, 60+ dimension tables, and 12 semantic views using Cortex Agents &amp; Cortex Analyst to enable natural-language querying over structured data.</li>
+        </ul>
+        <div class="chip-row exp-stack">
+          <span class="chip">Snowflake</span>
+          <span class="chip">Cortex Agents</span>
+          <span class="chip">Cortex Analyst</span>
+          <span class="chip">SQL</span>
+          <span class="chip">YAML</span>
+          <span class="chip">Git</span>
+        </div>
+      </article>
+
+      <article class="exp-item reveal">
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">Data Science Intern</div>
+            <div class="exp-org">Springer Capital</div>
+          </div>
+          <div class="exp-meta">Nov 2025 – Jan 2026<br>Remote</div>
+        </div>
+        <ul class="exp-list">
+          <li>Designed a Python &amp; SQL ETL pipeline (Pandas) to ingest, clean, and preprocess <strong>500+ quarterly client survey responses</strong> into structured, model-ready features.</li>
+          <li>Developed a VADER sentiment pipeline, then engineered scores as features for XGBoost and Random Forest classifiers to automatically flag at-risk clients across four portfolio segments.</li>
+          <li>Tuned models via cross-validation and hyperparameter search — <strong>+18% classification accuracy</strong> and <strong>−30% manual review time</strong>.</li>
+        </ul>
+        <div class="chip-row exp-stack">
+          <span class="chip">Python</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">VADER</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Pandas</span>
+        </div>
+      </article>
     </section>
 
     <!-- Skills -->
@@ -767,7 +948,7 @@
             <span>Python</span>
             <span class="years">3 years</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
         </div>
 
         <div class="skill-item">
@@ -776,13 +957,13 @@
             <span>SQL</span>
             <span class="years">2 years</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="50%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="60%"></div></div>
         </div>
 
         <div class="skill-item">
           <div class="skill-item-header">
-            <img src="icons/java.svg" alt="Java logo" loading="lazy">
-            <span>Java</span>
+            <img src="icons/javascript.svg" alt="JavaScript logo" loading="lazy">
+            <span>JavaScript</span>
             <span class="years">2 years</span>
           </div>
           <div class="progress-bar"><div class="progress" data-width="50%"></div></div>
@@ -790,11 +971,11 @@
 
         <div class="skill-item" style="margin-bottom:0;">
           <div class="skill-item-header">
-            <img src="icons/html5.svg" alt="HTML and CSS logo" loading="lazy">
-            <span>HTML/CSS</span>
+            <img src="icons/r.svg" alt="R logo" loading="lazy">
+            <span>R</span>
             <span class="years">1 year</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="25%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="35%"></div></div>
         </div>
       </div>
 
@@ -817,7 +998,7 @@
             <span>VS Code</span>
             <span class="years">2 years</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="50%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="60%"></div></div>
         </div>
 
         <div class="skill-item">
@@ -826,7 +1007,7 @@
             <span>Tableau</span>
             <span class="years">1.5 years</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="37.5%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="45%"></div></div>
         </div>
 
         <div class="skill-item" style="margin-bottom:0;">
@@ -835,7 +1016,63 @@
             <span>Power BI</span>
             <span class="years">1.5 years</span>
           </div>
-          <div class="progress-bar"><div class="progress" data-width="37.5%"></div></div>
+          <div class="progress-bar"><div class="progress" data-width="45%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech stack -->
+    <div class="section-head reveal">
+      <div>
+        <h2>Tech Stack</h2>
+        <p>The full toolbox across ML, data engineering, and cloud.</p>
+      </div>
+    </div>
+
+    <section class="stack reveal" aria-label="Tech stack">
+      <div class="stack-group">
+        <h3>Machine Learning &amp; AI</h3>
+        <div class="tag-row">
+          <span class="tag">scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">Hyperparameter Tuning</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">LangChain</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h3>Data Engineering</h3>
+        <div class="tag-row">
+          <span class="tag">ETL Pipelines</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Apache Airflow</span>
+          <span class="tag">Docker</span>
+          <span class="tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h3>Cloud &amp; Platforms</h3>
+        <div class="tag-row">
+          <span class="tag">Snowflake</span>
+          <span class="tag">Cortex Agents</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Azure</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h3>Visualization &amp; Tools</h3>
+        <div class="tag-row">
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Git</span>
+          <span class="tag">Jupyter</span>
         </div>
       </div>
     </section>
@@ -849,18 +1086,48 @@
     </div>
 
     <section class="projects" aria-label="Projects">
+      <a href="https://github.com/arjitsama/snowflake-agent-research" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-thumb ph">
+          <span class="emoji" aria-hidden="true">❄️</span>
+          <span class="open-tag">Open ↗</span>
+        </div>
+        <h3>Snowflake Cortex Agent Research</h3>
+        <p>Empirical study (IBM × Morgan Stanley) of Snowflake Cortex Agent performance at enterprise scale — table scaling limits, view routing, model sensitivity, and hallucination rates across 75+ automated evaluations.</p>
+        <p class="tech"><strong>Technologies:</strong> Snowflake, Cortex Agents, Cortex Analyst, SQL, YAML, Git</p>
+        <div class="chip-row">
+          <span class="chip">LLM Agents</span>
+          <span class="chip">Benchmarking</span>
+          <span class="chip">Enterprise Scale</span>
+        </div>
+      </a>
+
       <a href="https://github.com/arjitsama/HackViolet2026" target="_blank" rel="noopener noreferrer" class="project-card">
         <div class="project-thumb">
           <img src="lumina.png" alt="Lumina — VT Campus Safety App" loading="lazy" />
           <span class="open-tag">Open ↗</span>
         </div>
         <h3>Lumina (HackViolet 2026)</h3>
-        <p>Developed a Virginia Tech campus safety mobile application integrating real-time GPS tracking, safe route planning, and turn-by-turn navigation across 13 verified campus locations to support safer nighttime walking.</p>
-        <p class="tech"><strong>Technologies:</strong> React Native, Expo, JavaScript, Geoapify APIs, Google Maps, Expo Location, REST APIs</p>
+        <p>A Virginia Tech campus safety app with real-time GPS tracking, safe-route planning, and turn-by-turn navigation across 13 verified locations, plus SOS access and Blue Light proximity alerts.</p>
+        <p class="tech"><strong>Technologies:</strong> React Native, Expo, JavaScript, Geoapify APIs, Google Maps, REST APIs</p>
         <div class="chip-row">
           <span class="chip">React Native</span>
           <span class="chip">Navigation</span>
           <span class="chip">Safety</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/arjitsama/medical-nlp-pipeline" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-thumb ph">
+          <span class="emoji" aria-hidden="true">🩺</span>
+          <span class="open-tag">Open ↗</span>
+        </div>
+        <h3>Medical Transcription NLP Pipeline</h3>
+        <p>Multi-class text classifier categorizing 4,999 clinical notes across 40 specialties, using TF-IDF and chi-square feature selection to cut the feature space from 6,000 to 800 terms — with class balancing to prevent leakage.</p>
+        <p class="tech"><strong>Technologies:</strong> Python, scikit-learn, NLTK, LangChain, Sentence-Transformers, FAISS, Pandas</p>
+        <div class="chip-row">
+          <span class="chip">NLP</span>
+          <span class="chip">TF-IDF</span>
+          <span class="chip">Classification</span>
         </div>
       </a>
 
@@ -870,27 +1137,12 @@
           <span class="open-tag">Open ↗</span>
         </div>
         <h3>Stock Predictor App</h3>
-        <p>Developed a predictive model using Python and Streamlit to forecast stock prices for multiple companies.</p>
-        <p class="tech"><strong>Technologies:</strong> Python, Streamlit, Pandas, Facebook Prophet</p>
+        <p>A Streamlit web app that pulls historical prices via yfinance, forecasts with Facebook Prophet, and renders interactive Plotly visualizations for multiple companies.</p>
+        <p class="tech"><strong>Technologies:</strong> Python, Streamlit, Pandas, Prophet, Plotly, yfinance</p>
         <div class="chip-row">
           <span class="chip">Streamlit</span>
           <span class="chip">Time-series</span>
           <span class="chip">Forecasting</span>
-        </div>
-      </a>
-
-      <a href="https://docs.google.com/presentation/d/1H7NaHfwmkVm5nc2-baM04mDrd87tuhOjpV_H2Emy2c8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-card">
-        <div class="project-thumb">
-          <img src="supermarket.png" alt="Data Fest Presentation" loading="lazy" />
-          <span class="open-tag">Open ↗</span>
-        </div>
-        <h3>Data Fest Presentation</h3>
-        <p>Analyzed nationwide supermarket accessibility trends using Python, pandas, NumPy, GeoPandas, and scikit-learn with a five-person team.</p>
-        <p class="tech"><strong>Technologies:</strong> Python, Scikit-Learn, GeoPandas, NumPy</p>
-        <div class="chip-row">
-          <span class="chip">GeoPandas</span>
-          <span class="chip">PCA</span>
-          <span class="chip">Spatial</span>
         </div>
       </a>
 
@@ -900,12 +1152,27 @@
           <span class="open-tag">Open ↗</span>
         </div>
         <h3>NFL Playoff Predictor</h3>
-        <p>Built an NFL win probability and championship odds model using ensemble machine learning and Monte Carlo simulations.</p>
+        <p>Win-probability and championship-odds model using ensemble machine learning and Monte Carlo simulations to project playoff and Super Bowl outcomes.</p>
         <p class="tech"><strong>Technologies:</strong> Python, scikit-learn, pandas, NumPy, Monte Carlo simulation</p>
         <div class="chip-row">
           <span class="chip">Monte Carlo</span>
           <span class="chip">Ensembles</span>
           <span class="chip">Sports</span>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/presentation/d/1H7NaHfwmkVm5nc2-baM04mDrd87tuhOjpV_H2Emy2c8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-thumb">
+          <img src="supermarket.png" alt="Supermarket Accessibility Analysis" loading="lazy" />
+          <span class="open-tag">Open ↗</span>
+        </div>
+        <h3>Supermarket Accessibility (Data Fest 2025)</h3>
+        <p>Analyzed U.S. supermarket accessibility at county level across 3,000+ USDA datasets, building a PCA-based index and spatial regression to surface statistically significant underserved regions.</p>
+        <p class="tech"><strong>Technologies:</strong> Python, pandas, NumPy, GeoPandas, scikit-learn, Matplotlib</p>
+        <div class="chip-row">
+          <span class="chip">GeoPandas</span>
+          <span class="chip">PCA</span>
+          <span class="chip">Spatial Stats</span>
         </div>
       </a>
     </section>
@@ -1005,14 +1272,15 @@
 
     /* ---- Active nav link on scroll ---- */
     const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-    const sectionFor = (id) => document.querySelector(id);
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
-    ["#skills", "#projects", "#contact"].forEach((id) => { const el = sectionFor(id); if (el) navObserver.observe(el); });
+    ["#experience", "#skills", "#projects", "#contact"].forEach((id) => {
+      const el = document.querySelector(id); if (el) navObserver.observe(el);
+    });
 
     /* ---- Scroll progress + back-to-top ---- */
     const progress = document.getElementById("scrollProgress");
@@ -1066,8 +1334,8 @@
           const r = card.getBoundingClientRect();
           const px = (e.clientX - r.left) / r.width;
           const py = (e.clientY - r.top) / r.height;
-          const rx = (0.5 - py) * 8;   // rotateX
-          const ry = (px - 0.5) * 10;  // rotateY
+          const rx = (0.5 - py) * 8;
+          const ry = (px - 0.5) * 10;
           card.style.transform = `translateY(-4px) perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
           card.style.setProperty("--gx", (px * 100) + "%");
           card.style.setProperty("--gy", (py * 100) + "%");
