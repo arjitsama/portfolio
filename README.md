@@ -1,31 +1,28 @@
-# 🌐 Arjit Sama — Portfolio Website
+# 🌐 Arjit Sama, Portfolio Website
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
 A personal portfolio showcasing my skills, projects, and contact information.
-
-
 
 ---
 
 ## 📌 Features
-- **Responsive Design** — Works seamlessly on desktop, tablet, and mobile devices.
-- **Skills Section** — Displays programming languages and developer tools with experience levels.
-- **Projects Showcase** — Highlights key projects with images, descriptions, and links to GitHub repositories.
-- **Contact Section** — Quick access to email, GitHub, and LinkedIn profiles.
+- **Responsive Design**: works on desktop, tablet, and mobile.
+- **Skills Section**: programming languages and developer tools with years of experience.
+- **Projects Showcase**: key projects with logos, descriptions, and links to the repos.
+- **Contact Section**: email, GitHub, and LinkedIn.
 
 ---
 
 ## 🌐 Live Demo
-Once deployed, you can view the site here:  
-[Click here to view portfolio](https://arjitsama.github.io/portfolio/)
+[View the portfolio](https://arjitsama.github.io/portfolio/)
 
 ---
 
 ## 📸 Screenshot
-![Portfolio Screenshot](portfolio.png)  
-A snippet of my portfolio.
+![Portfolio Screenshot](portfolio.jpg)
 
 ---
 
@@ -33,6 +30,7 @@ A snippet of my portfolio.
 
 - HTML5
 - CSS3
+- JavaScript
 
 ---
 
@@ -40,11 +38,11 @@ A snippet of my portfolio.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/arjitsama/arjitsama.github.io.git
-cd arjitsama.github.io
+git clone https://github.com/arjitsama/portfolio.git
+cd portfolio
 ```
 
 ### 2️⃣ Open in Browser
 ```bash
-Simply double-click index.html to open the portfolio in your default web browser.
+open index.html
 ```
